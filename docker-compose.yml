@@ -1,0 +1,21 @@
+services:
+  mysql:
+    image: mysql:8.4               # versión de MySQL
+    environment:
+      MYSQL_ROOT_PASSWORD: root    # contraseña del administrador (SÓLO para practicar)
+      MYSQL_DATABASE: todo         # crea una base de datos llamada "todo"
+    ports:
+      - "3300:3300"           # puerto por el que nos conectamos
+    volumes:
+      - "mysql_data:/var/lib/mysql"   # para que los datos no se pierdan al apagar
+
+  mongo:
+    image: mongo:8
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mysql_data:
+  mongo_data:

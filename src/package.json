@@ -1,0 +1,7 @@
+{ 
+    "type": "module",
+    "scripts": {
+        "dev": "node --watch --env-file=.env servidor.js",
+        "start": "node servidor.js"
+    }
+}

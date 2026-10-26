@@ -1,0 +1,51 @@
+@base = http://localhost:3000
+
+### Crear lista
+POST {{base}}/lists
+Content-Type: application/json
+
+{ 
+    "id": "2",
+    "name": "esceula",
+    "listId": "default"
+}
+
+POST {{base}}/lists
+Content-Type: application/json
+
+{ 
+    "id": 2,
+    "name": "esceula",
+    "listId": "default"
+}
+
+### Ver todas las listas
+GET {{base}}/lists
+
+### Ver una tarea especifica
+GET {{base}}/lists/2
+Content-Type: application/json
+
+### Llamar una lista inexistente
+GET {{base}}/lists/h
+Content-Type: application/json
+
+
+### Borrar una lista
+DELETE {{base}}/lists/2
+Content-Type: application/json
+
+
+### Borrar una lista inexistente
+DELETE {{base}}/lists/h
+Content-Type: application/json
+
+### Ver las tareas de una lista de prioridad alta ordenadas por fecha
+GET {{base}}/lists/:id/tasks?priority=high&sortBy=createdAt&order=asc
+
+
+### Cambiar prioridad de una tarea
+PATCH {{base}}/lists/1
+Content-Type: application/json
+
+{ "priority": "high" }
